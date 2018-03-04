@@ -70,7 +70,7 @@ Install dependencies with `yarn install`
 1.  Zip the contents of this folder (not the folder itself).
 2.  Go to AWS Lambda Console and crate a new Function
 3.  Under Code entry type, select Upload a .ZIP file
-4.  Rename the Handler to app.handler
+4.  Rename the Handler to `index.handler`
 5.  Save the function
 6.  Create a test event and save the event
 7.  Click test and make sure it's working
@@ -131,3 +131,22 @@ Install dependencies with `yarn install`
 * `AWS_ACCESS_KEY_ID` (Access Key)
 * `AWS_SECRET_ACCESS_KEY` (Secret Key)
 * `AWS_DEFAULT_REGION` (Region where the API Gateway is deployed).
+
+24. Execute the URL with the body parameters:
+```javascript
+{
+  "a": 1,
+  "b": 2,
+  "op": "+"
+}
+```
+
+25. The output should receive the following data:
+```javascript
+{
+  "a": 1,
+  "b": 2,
+  "op": "+",
+  "result": 3
+}
+```
