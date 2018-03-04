@@ -124,15 +124,9 @@ Install dependencies with `yarn install`
 18. You can now test the `POST` method if it works correctly.
 19. Go to Actions, `Deploy API`
 20. Select a development stage then `Deploy`
-21. Once deployed, you will be able to grab the Invoke URL
-22. Create an Access key in IAM for the User which should be under Users > Security credentials.
-23. When accessing the Invoke URL, specify the following:
+21. Once deployed, you will be able to grab the Invoke URL and use it for a POST request.
 
-* `AWS_ACCESS_KEY_ID` (Access Key)
-* `AWS_SECRET_ACCESS_KEY` (Secret Key)
-* `AWS_DEFAULT_REGION` (Region where the API Gateway is deployed).
-
-24. Execute the URL with the body parameters:
+22. Execute the URL with the body parameters:
 ```javascript
 {
   "a": 1,
@@ -141,7 +135,7 @@ Install dependencies with `yarn install`
 }
 ```
 
-25. The output should receive the following data:
+23. The output should receive the following data:
 ```javascript
 {
   "a": 1,
@@ -150,3 +144,11 @@ Install dependencies with `yarn install`
   "result": 3
 }
 ```
+
+## Securing the API method with an API Key
+1. Under the `/calculator - POST` setting, select `Method Request`.
+2. Change the `API Key Required` to true.
+3. Create a `Usage Plan` called `Basic`.
+4. Create an `API Key` and Add it to usage plan Basic.
+5. Save and re-deploy the Calculator API
+6. When accessing the invoke URL, specify the request header `X-API-KEY` and use the API key generated in Step 4.
